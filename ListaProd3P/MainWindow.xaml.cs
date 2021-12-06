@@ -33,6 +33,12 @@ namespace ListaProd3P
             p1 = new Produkt("12345N", "laptop", 10, "Katowice");
             gridProdukt.DataContext = p1;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            String tekst = String.Format("{0} {1} ", "Wprowadzono dane: \n", p1.ToString());
+            MessageBox.Show(tekst);
+        }
     }
 
 }
