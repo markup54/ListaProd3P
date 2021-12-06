@@ -20,9 +20,19 @@ namespace ListaProd3P
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Produkt p1 = null;
         public MainWindow()
         {
             InitializeComponent();
+            PrzygotujWiazanie();
+        }
+
+
+        private void PrzygotujWiazanie()
+        {
+            p1 = new Produkt("12345N", "laptop", 10, "Katowice");
+            gridProdukt.DataContext = p1;
         }
     }
+
 }
