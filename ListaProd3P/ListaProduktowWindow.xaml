@@ -14,6 +14,13 @@
         </Style>
     </Window.Resources>
     <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Filtruj według nazwy"
+                   Margin="10"/>
+            <TextBox Name ="txtFilter" 
+                     HorizontalAlignment="Stretch"
+                     Margin="10"/>
+        </StackPanel>
         <ListView x:Name="listaProdukty" MouseDoubleClick="ListaProdukty_MouseDoubleClick" KeyUp="listaProdukty_KeyUp" >
             <ListView.View>
                 <GridView>

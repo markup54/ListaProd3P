@@ -46,7 +46,7 @@ namespace ListaProd3P
 
         private void listaProdukty_KeyUp(object sender, KeyEventArgs e)
         {
-            if(sender.GetHashCode() == 46){
+            //if(sender.GetHashCode() == 46){
                 Produkt produktZListy = listaProdukty.SelectedItem as Produkt;
                 MessageBoxResult odpowiedz = MessageBox.Show(" Czy na pewno chcesz usunąć "
                     + produktZListy.ToString() + "?", "Pytanie",
@@ -57,7 +57,7 @@ namespace ListaProd3P
                     //MessageBox.Show("usuwanako");
                     ListaProduktow.Remove(produktZListy);
                 }
-            }
+            //}
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
