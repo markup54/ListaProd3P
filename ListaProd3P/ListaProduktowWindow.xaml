@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:ListaProd3P"
         mc:Ignorable="d"
         Title="ListaProduktowWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="Bisque"/>
+            
+        </Style>
+    </Window.Resources>
     <Grid>
         <ListView x:Name="listaProdukty">
             <ListView.View>
@@ -15,7 +21,12 @@
                     <GridViewColumn Header="Liczba sztuk" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding LiczbaSztuk}" FontSize="14" Foreground="Green" FontWeight="Bold"/>
+                                <TextBlock 
+                                    Text="{Binding LiczbaSztuk}" 
+                                    FontSize="14" 
+                                    Foreground="Green" 
+                                    Background="Sienna"
+                                    FontWeight="Bold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
