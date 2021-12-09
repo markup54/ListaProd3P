@@ -20,6 +20,7 @@ namespace ListaProd3P
     public partial class SzczegolyWindow : Window
     {
         private ListaProduktowWindow listaWindow = null;
+        private bool czyNowy = false;
         public SzczegolyWindow()
         {
             InitializeComponent();
@@ -30,17 +31,36 @@ namespace ListaProd3P
             this.listaWindow = listaWin;
             PrzygotujWiazanie();
         }
+
+        public SzczegolyWindow(ListaProduktowWindow listaW, bool czyNowy)
+        {
+            InitializeComponent();
+            this.listaWindow = listaW;
+            this.czyNowy = czyNowy;
+            PrzygotujWiazanie();
+        }
         private void PrzygotujWiazanie()
         {
-            Produkt produktZListy = listaWindow.listaProdukty.SelectedItem as Produkt;
-            if(produktZListy != null)
+            Produkt produktZListy = null;
+            if (czyNowy == true)
+            {
+                produktZListy = new Produkt("", "", 0, "");
+                listaWindow.ListaProduktow.Add(produktZListy);
+            }
+            else
+            {
+                produktZListy = listaWindow.listaProdukty.SelectedItem as Produkt;
+            }
+            if (produktZListy != null)
             {
                 gridProdSzcz.DataContext = produktZListy;
             }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             this.Close();
         }
     }

@@ -36,6 +36,8 @@
             </ListView.View>
         </ListView>
         <Button Content="Dodaj nowy produkt"
-                HorizontalAlignment="Center" Click="Button_Click"/>
+                HorizontalAlignment="Center"
+                Margin="20"
+                Click="Button_Click"/>
     </StackPanel>
 </Window>

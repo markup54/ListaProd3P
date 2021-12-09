@@ -20,7 +20,7 @@ namespace ListaProd3P
     /// </summary>
     public partial class ListaProduktowWindow : Window
     {
-        private ObservableCollection<Produkt> ListaProduktow = null;
+        internal ObservableCollection<Produkt> ListaProduktow = null;
             public ListaProduktowWindow()
         {
             InitializeComponent();
@@ -46,21 +46,25 @@ namespace ListaProd3P
 
         private void listaProdukty_KeyUp(object sender, KeyEventArgs e)
         {
-            Produkt produktZListy = listaProdukty.SelectedItem as Produkt;
-            MessageBoxResult odpowiedz = MessageBox.Show(" Czy na pewno chcesz usunąć "
-                + produktZListy.ToString() + "?","Pytanie",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
-            if(odpowiedz == MessageBoxResult.Yes)
-            {
-                //MessageBox.Show("usuwanako");
-                ListaProduktow.Remove(produktZListy);
+            if(sender.GetHashCode() == 46){
+                Produkt produktZListy = listaProdukty.SelectedItem as Produkt;
+                MessageBoxResult odpowiedz = MessageBox.Show(" Czy na pewno chcesz usunąć "
+                    + produktZListy.ToString() + "?", "Pytanie",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+                if (odpowiedz == MessageBoxResult.Yes)
+                {
+                    //MessageBox.Show("usuwanako");
+                    ListaProduktow.Remove(produktZListy);
+                }
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("dodawanie produktu");
+            //MessageBox.Show("dodawanie produktu");
+            SzczegolyWindow okno1 = new SzczegolyWindow(this,true);
+            okno1.ShowDialog();
         }
     }
 }
