@@ -36,5 +36,31 @@ namespace ListaProd3P
             ListaProduktow.Add(new Produkt("ML-2160", "drukarka", 5, "Gliwice"));
             listaProdukty.ItemsSource = ListaProduktow;
         }
+
+        private void ListaProdukty_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SzczegolyWindow okno = new SzczegolyWindow(this);
+            //okno.Show(); można otworzyć dowolną liczbę okien niewskazane
+            okno.ShowDialog();
+        }
+
+        private void listaProdukty_KeyUp(object sender, KeyEventArgs e)
+        {
+            Produkt produktZListy = listaProdukty.SelectedItem as Produkt;
+            MessageBoxResult odpowiedz = MessageBox.Show(" Czy na pewno chcesz usunąć "
+                + produktZListy.ToString() + "?","Pytanie",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+            if(odpowiedz == MessageBoxResult.Yes)
+            {
+                //MessageBox.Show("usuwanako");
+                ListaProduktow.Remove(produktZListy);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("dodawanie produktu");
+        }
     }
 }

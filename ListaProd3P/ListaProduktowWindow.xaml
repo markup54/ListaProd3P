@@ -9,11 +9,12 @@
     <Window.Resources>
         <Style TargetType="ListViewItem">
             <Setter Property="Background" Value="Bisque"/>
-            
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+
         </Style>
     </Window.Resources>
-    <Grid>
-        <ListView x:Name="listaProdukty">
+    <StackPanel>
+        <ListView x:Name="listaProdukty" MouseDoubleClick="ListaProdukty_MouseDoubleClick" KeyUp="listaProdukty_KeyUp" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}"/>
@@ -34,5 +35,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-    </Grid>
+        <Button Content="Dodaj nowy produkt"
+                HorizontalAlignment="Center" Click="Button_Click"/>
+    </StackPanel>
 </Window>
