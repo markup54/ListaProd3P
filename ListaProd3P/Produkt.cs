@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ListaProd3P
 {
-    internal class Produkt
+    public class Produkt
     {
         public string Symbol { get; set; }
         public string Nazwa { get; set; }

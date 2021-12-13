@@ -18,8 +18,8 @@
             <Label Content="Filtruj według nazwy"
                    Margin="10"/>
             <TextBox Name ="txtFilter" 
-                     HorizontalAlignment="Stretch"
-                     Margin="10"/>
+                     Width="200"
+                     Margin="10" TextChanged="txtFilter_TextChanged"/>
         </StackPanel>
         <ListView x:Name="listaProdukty" MouseDoubleClick="ListaProdukty_MouseDoubleClick" KeyUp="listaProdukty_KeyUp" >
             <ListView.View>
