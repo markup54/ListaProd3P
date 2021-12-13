@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:ListaProd3P"
         mc:Ignorable="d"
         Title="RozneListyWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
+        <ComboBox>
+            <ComboBoxItem Content="ItemsControl"/>
+            <ComboBoxItem Content="ListBox"/>
+            <ComboBoxItem Content="ListView"/>
+            <ComboBoxItem Content="DataGrid"/>
+        </ComboBox>
         <TabControl TabStripPlacement="Top"
                     SelectedIndex="2"
                     BorderBrush="Azure"
@@ -39,11 +45,72 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </TabItem> 
-            <TabItem Header="ListBox"/>
-            <TabItem Header="ListView"/>
-            <TabItem Header="DataGrid"/>
-            
+            </TabItem>
+            <TabItem Header="ListBox">
+                <ListBox ItemsSource="{Binding Produkty}"
+                         SelectionMode="Multiple">
+                    <!--
+                    <ListBoxItem>
+                        <Label>asjf</Label>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <Label>asjf</Label>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <Label>asjf</Label>
+                    </ListBoxItem>
+                    -->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Symbol}"/>
+                                <Label Content="{Binding Nazwa}"/>
+                                <Label Content="{Binding LiczbaSztuk}"/>
+                                <Label Content="{Binding Magazyn}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    
+                </ListBox>
+            </TabItem>
+            <TabItem Header="ListView">
+                <ListView ItemsSource="{Binding Produkty}">
+                    <!--<ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Symbol}"/>
+                                <Label Content="{Binding Nazwa}"/>
+                                <Label Content="{Binding LiczbaSztuk}"/>
+                                <Label Content="{Binding Magazyn}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate> -->
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="True">
+                            <GridViewColumn DisplayMemberBinding="{Binding Symbol}" 
+                                            Header="Symbol"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Nazwa}"
+                                            Header="Nazwa"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding LiczbaSztuk}"
+                                            Header="Liczba Sztuk"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Magazyn}"
+                                            Header="Magazyn"/>
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+            </TabItem>
+            <TabItem Header="DataGrid">
+                <DataGrid ItemsSource="{Binding Produkty}"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Moja kolumna" 
+                            Binding="{Binding Nazwa}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
         </TabControl>
-    </Grid>
+    </StackPanel>
 </Window>
